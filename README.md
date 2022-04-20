@@ -13,7 +13,7 @@ DATE : 17th April 2022
 **DATASET DESCRIPTION**
 The dataset we are using is from kaggle https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset which is about 126MB. There are about 7 classes namely `sad`,  `happy`, `surprise`, `fear`, `neutral`, `disgust`, `angry`. 
  
-** DATA PREPARATION **
+**DATA PREPARATION**
 * Dataset was uploaded to sagemaker locally as a 'zip' folder and extracted in Jupyter Notebook using unzip command.
 * Path of the dataset folder is assigned to a variable and by `listdir` tried to assign the path of the train folder to `train_dir`.
 * Path of the dataset folder is assigned to a variable and by `listdir` tried to assign the path of the test folder to `test_dir`.
@@ -21,7 +21,7 @@ The dataset we are using is from kaggle https://www.kaggle.com/datasets/jonathan
 * Calculated the length of train and test folder set by using length function on the `listdir`.
 * To Balance the data in the classes , Data Augmentation was perfomed by using `ImageDataGenerator` to prevent biased output. Training set was split as 80:20 (train : validation).Same process was implemented on Test data.
 
-** Model Building **
+**MODEL BUILDING**
 * A Sequential model was created.
 * Convolutional Neural Networks Conv2D layers are  added inside the sequential model with filters , padding , activation function(`RELU`) and the input shape.
 * `MaxPooling` is used to extract the best features from the output of Conv2D which helps in reducing Overfitting.
@@ -32,7 +32,7 @@ The dataset we are using is from kaggle https://www.kaggle.com/datasets/jonathan
 * `EarlyStopping` is used to stop the job to run when there is no improvement in the parameter pass to EarlyStopping Callback.
 * `ReduceLOROnPlateau` helps in monitoring the learning rate (maximizes or minimizes or no improvement).
 
-** Training the Model ** 
+**TRAINING N TESTING**
 * By using `.fit` , trained the training set with the sequential model and mentioned validation set during for `validation_accuracy` and `validation_loss`.
 * Mentioned the epochs and the batch size.
 * By using `.evaluate` , tested the accuracy and loss of testing data with sequential model.
