@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Search Results</title>
+        <style>
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 5px;
+            }
+            .grid-item {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Original Image</h2>
+        <div> <img src="{{ original }}" style="max-width: 400px;" alt="original image"> </div>
+
+        <h2>Best Guess</h2>
+        {{ best_guess_label }}
+
+                {{result}}
+                {% for key, value in content.items() %}
+                {{ key }} : {{ value }}
+                {% endfor %}
+    </body>
+</html>
