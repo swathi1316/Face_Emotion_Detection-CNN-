@@ -152,3 +152,10 @@ heroku create face-emo-apps command initializes the Heroku application
 * Very Deep learning Models like VGG16 , ResiNet would increase the accuracy and F1-Score of the data.
 * Model can be tested using OPENCV which helps in predicting the Real Time Face Expressions by using WebCam.
 
+**Reference**
+https://www.analyticsvidhya.com/blog/2021/11/facial-emotion-detection-using-cnn/
+https://realpython.com/flask-by-example-part-1-project-setup/
+https://github.com/karen-jin/vehicle-classification-TF
+https://medium.com/themlblog/how-to-do-facial-emotion-recognition-using-a-cnn-b7bbae79cd8f
+https://www.youtube.com/watch?v=Bb4Wvl57LIk
+
