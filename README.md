@@ -37,3 +37,18 @@ The dataset we are using is from kaggle https://www.kaggle.com/datasets/jonathan
 * Mentioned the epochs and the batch size.
 * By using `.evaluate` , tested the accuracy and loss of testing data with sequential model.
 * Generated a Confusion Matrix by using `model.predict(test_data)` and data visualization was provided for Confusion Matrix.
+
+**Explanation:**
+Our classifier is very picky, and does not think many things are hot dogs. All the images it thinks are “happy”, are really “happy”. However it also misses a lot of actual “happy”, because it is so very picky. We have low recall, but a very high precision.
+
+**Run Flask app on local system:**
+Flask app for local development is using the flask run command from a terminal. By default, Flask will run the application you defined in app.py on port 5000. While the application is running, go to http://localhost:5000 using your web browser. As we are in the development stage, To reload your application automatically whenever you make a change to it. You can do this by passing an environment variable, FLASK_ENV=development, to flask run.
+
+**Heroku Deployment**
+* Login To heroku account, install heroku CLI.
+* create a file named Procfile in the project’s root directory. This file tells Heroku how to run the app.
+* install Gunicorn and update the requirements.txt file using pip
+heroku create face-emo-apps command initializes the Heroku application
+* git push heroku master pushing the master branch to the heroku remote
+* heroku open will open your application using your default web browser. 
+
