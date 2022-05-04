@@ -6,6 +6,7 @@ from keras.preprocessing import image
 import numpy as np
 from PIL import Image
 import cv2
+import gunicorn
 
 app = Flask(__name__)
 
@@ -14,6 +15,11 @@ emotion_dict = {0:'angry', 1:'neutral',2:'sad'}
 model = load_model('face_emotion_e.h5')
 
 model.make_predict_function()
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'bmp'])
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def predict_label(img_path):
 	img = image.load_img(img_path, target_size=(48,48))
@@ -39,11 +45,12 @@ def about_page():
 def get_output():
 	if request.method == 'POST':
 		img = request.files['my_image']
-		img_path = "static/" + img.filename	
-		img.save(img_path)
-		img = cv2.imread(img_path)
-		p = predict_label(img_path)
-		return render_template("index.html", prediction = p, img_path = img_path)
+		if img and allowed_file(img.filename):
+			img_path = "static/" + img.filename	
+			img.save(img_path)
+			img = cv2.imread(img_path)
+			p = predict_label(img_path)
+			return render_template("index.html", prediction = p, img_path = img_path)
 
 
 if __name__ =='__main__':
